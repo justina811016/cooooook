@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Auth::routes();
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// 主頁Dashboard
+Route::get('/', 'HomeController@index')->middleware('auth')->name('home');
+// 登入頁
+Route::view('login', 'auth.login')->name('login.index');
+Route::post('login', 'Auth\LoginController@authenticate')->name('login');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
