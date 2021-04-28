@@ -11,11 +11,14 @@
 |
 */
 
-// Auth::routes();
-
-// 主頁Dashboard
-Route::get('/', 'HomeController@index')->middleware('auth')->name('home');
 // 登入頁
 Route::view('login', 'auth.login')->name('login.index');
 Route::post('login', 'Auth\LoginController@authenticate')->name('login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::middleware(['auth'])->group(function () {
+	// 主頁Dashboard
+	Route::get('/', 'HomeController@index')->middleware('auth')->name('home');
+
+	Route::get('users', 'UserController@index')->name('user.list');
+});
