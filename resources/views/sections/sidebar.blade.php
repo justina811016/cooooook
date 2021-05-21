@@ -14,7 +14,7 @@
             <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
         </li>
         <li>
-            <a href="{{ route('user.list') }}">
+            <a href="{{ route('user.index') }}">
                 <span class="fa fa-users mr-3 notif"></span>
                 {{ __('share_text.Users_manage') }}
             </a>

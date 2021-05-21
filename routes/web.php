@@ -19,6 +19,8 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::middleware(['auth'])->group(function () {
 	// 主頁Dashboard
 	Route::get('/', 'HomeController@index')->middleware('auth')->name('home');
-
-	Route::get('users', 'UserController@index')->name('user.list');
+	// 使用者列表
+	Route::get('users', 'UserController@index')->name('user.index');
+	// 新增使用者
+	Route::post('user', 'UserController@store')->name('user.store');
 });

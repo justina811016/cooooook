@@ -6,7 +6,7 @@
 /public/images
 /public/js
 /public/mix-manifest.json
-/storage/*.key
+/storage
 /vendor
 .env
 .env.backup
