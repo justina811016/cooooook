@@ -27,6 +27,15 @@
               <div class="col-sm-8">
                 <input type="text" class="form-control" id="add_email" name="email" placeholder="輸入信箱">
               </div>
+              @if (count($errors) > 0)
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
             </div>
             <div class="form-group row">
               <div class="col-sm-4">

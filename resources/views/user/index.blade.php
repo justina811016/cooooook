@@ -41,11 +41,24 @@
 			    </table>
 			</div>
 		</div>
+
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination justify-content-end">
+		    <li class="page-item disabled">
+		      <a class="page-link" href="#" tabindex="-1">Previous</a>
+		    </li>
+		    @for ($i = 1; $i <= $users->lastPage(); $i++)
+		        <li class="page-item"><a class="page-link" href="{{ $users->url($i) }}">{{ $i }}</a></li>
+		    @endfor
+		    <li class="page-item">
+		      <a class="page-link" href="#">Next</a>
+		    </li>
+		  </ul>
+		</nav>
 	</div>
 </div>
 @endsection
 
 @section('scripts')
   <script src="{{ mix('js/user-index.js') }}"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 @endsection
